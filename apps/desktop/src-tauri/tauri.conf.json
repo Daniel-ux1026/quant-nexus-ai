@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Quant Nexus AI",
+  "version": "0.4.0",
+  "identifier": "com.quantnexus.lab",
+  "build": {
+    "beforeDevCommand": { "script": "npm run dev", "cwd": "../../.." },
+    "beforeBuildCommand": { "script": "npm run build", "cwd": "../../.." },
+    "devUrl": "http://127.0.0.1:1460",
+    "frontendDist": "../../../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Quant Nexus AI",
+        "width": 1270,
+        "height": 880,
+        "minWidth": 420,
+        "minHeight": 650
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; img-src 'self' data:; style-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'",
+      "devCsp": "default-src 'self'; connect-src ipc: http://ipc.localhost ws://127.0.0.1:1460; img-src 'self' data:; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-src 'none'; base-uri 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "useLocalToolsDir": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico"],
+    "shortDescription": "Laboratorio local de mercado Spot USDT"
+  }
+}
